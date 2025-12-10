@@ -41,7 +41,7 @@
         app:srcCompat="@mipmap/logo" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/lbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="190dp"
@@ -51,11 +51,13 @@
         android:text="Control de trabajadores agricolas"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.593"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.545" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/txtUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
@@ -74,7 +76,7 @@
         app:layout_constraintVertical_bias="0.387" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/txtContrasena"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -89,16 +91,18 @@
         app:layout_constraintVertical_bias="0.485" />
 
     <Button
-        android:layout_width="404dp"
-        android:layout_height="74dp"
+        android:id="@+id/btnLogin"
+        android:layout_width="381dp"
+        android:layout_height="75dp"
         android:backgroundTint="#4CAF50"
+        android:onClick="iniciar"
         android:text="Iniciar Sesion"
         app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.627"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2"
+        app:layout_constraintTop_toBottomOf="@+id/txtContrasena"
         app:layout_constraintVertical_bias="0.11" />
 
 
