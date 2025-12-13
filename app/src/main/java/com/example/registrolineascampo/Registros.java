@@ -13,7 +13,7 @@ public class Registros extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pantalla_inicial);
+        setContentView(R.layout.activity_registros);
        //Inicializando Componentes
         btnNavConfig=findViewById(R.id.btnNavConfig);
         btnNavRegistro=findViewById(R.id.btnNavRegistro);
