@@ -12,6 +12,8 @@ public class Registros extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Cambiar el color de la barra de estado a Verde
+        getWindow().setStatusBarColor(android.graphics.Color.parseColor("#4CAF50"));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registros);
        //Inicializando Componentes

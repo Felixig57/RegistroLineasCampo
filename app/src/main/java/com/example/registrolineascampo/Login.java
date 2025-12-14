@@ -8,7 +8,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
-public class MainActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
     private EditText txtUsuario, txtContrasena;
     private Button btnLogin;
     private AppDatabase db;
@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+        // Cambiar el color de la barra de estado a Verde
+        getWindow().setStatusBarColor(android.graphics.Color.parseColor("#4CAF50"));
      //inicializar componentes
       txtUsuario = findViewById(R.id.txtUsuario);
       txtContrasena = findViewById(R.id.txtContrasena);
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                     if (usuarioEncontrado != null) {
                         Toast.makeText(getApplicationContext(), "¡Bienvenido " + usuarioEncontrado.nombreUsuario + "!", Toast.LENGTH_LONG).show();
                         // Navegación exitosa
-                        Intent intent = new Intent(MainActivity.this, Registros.class);
+                        Intent intent = new Intent(Login.this, Registros.class);
                         startActivity(intent);
                         finish();
 

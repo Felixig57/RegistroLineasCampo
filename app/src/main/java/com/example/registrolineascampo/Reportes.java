@@ -2,6 +2,7 @@ package com.example.registrolineascampo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +12,8 @@ public class Reportes extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Cambiar el color de la barra de estado a Verde
+        getWindow().setStatusBarColor(android.graphics.Color.parseColor("#4CAF50"));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reportes);
         //Inicializar Componentes
@@ -21,6 +24,7 @@ public class Reportes extends AppCompatActivity {
         //Inicializar Metodos OnClick
         btnNavConfig.setOnClickListener(View -> NavConfig());
         btnNavRegistro.setOnClickListener(View -> NavRegistro());
+        btnNavReportes.setOnClickListener(View-> NavReportes());
     }
     private void NavConfig(){
         if(btnNavConfig.isClickable()){
@@ -36,4 +40,8 @@ public class Reportes extends AppCompatActivity {
             finish();
         }
     }
+    private void NavReportes(){
+
+    }
+
 }
