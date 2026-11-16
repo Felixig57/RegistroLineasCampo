@@ -6,10 +6,11 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:background="#F5F5F5"
-    tools:context=".Registros">
 
+    android:background="#F5F5F5"
+    tools:context=".ui.Records.Registros">
+
+    <!-- ENCABEZADO -->
     <LinearLayout
         android:id="@+id/linearLayoutHeader"
         android:layout_width="match_parent"
@@ -20,9 +21,9 @@
         android:paddingTop="16dp"
         android:paddingEnd="16dp"
         android:paddingBottom="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             android:id="@+id/textViewTitulo"
@@ -50,23 +51,24 @@
             android:text="Apuntador: (Usuario)"
             android:textColor="#FFFFFF"
             android:textStyle="italic" />
+
     </LinearLayout>
 
+    <!-- PANEL CONFIGURACION DEL DIA -->
     <LinearLayout
         android:id="@+id/panelConfiguracion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/rounded_background_white"
         android:elevation="4dp"
         android:orientation="vertical"
         android:padding="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutHeader"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutHeader">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             android:id="@+id/textViewConfigTitle"
@@ -106,6 +108,7 @@
                 android:gravity="center"
                 android:text="Variedad"
                 android:textColor="#757575" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -146,46 +149,111 @@
                 android:textColor="#000000"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+
         </LinearLayout>
+
     </LinearLayout>
 
+    <!-- BUSCADOR -->
     <SearchView
         android:id="@+id/searchView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/rounded_background_white"
         android:elevation="2dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:queryHint="Buscar por número o nombre..."
+        android:iconifiedByDefault="false"
+        app:layout_constraintTop_toBottomOf="@id/panelConfiguracion"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/panelConfiguracion"
-        app:queryHint="Buscar por número o nombre..."
-        app:iconifiedByDefault="false"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- BOTON AGREGAR TRABAJADOR -->
+    <LinearLayout
+        android:id="@+id/btnAgregarTrabajador"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_background_white"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:elevation="2dp"
+        android:contentDescription="Agregar trabajador"
+        app:layout_constraintTop_toBottomOf="@id/searchView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- CIRCULO VERDE CON SIGNO MAS -->
+        <TextView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/circle_green"
+            android:gravity="center"
+            android:text="+"
+            android:textColor="#FFFFFF"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+
+        <!-- TEXTO -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Agregar trabajador"
+            android:textColor="#757575"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <!-- LISTA DE TRABAJADORES -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerTrabajadores"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/btnAgregarTrabajador"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/item_trabajador" />
+
+    <!-- MENSAJE CUANDO NO HAY EMPLEADOS -->
     <TextView
         android:id="@+id/textViewNoEmpleados"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="No se encontraron empleados"
         android:textColor="#9E9E9E"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavLayout"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/btnAgregarTrabajador"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavLayout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="0.3" />
 
+    <!-- NAVEGACION INFERIOR -->
     <LinearLayout
         android:id="@+id/bottomNavLayout"
-        android:layout_width="477dp"
-        android:layout_height="86dp"
+        android:layout_width="0dp"
+        android:layout_height="76dp"
         android:background="@android:color/white"
         android:elevation="8dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <Button
             android:id="@+id/btnNavRegistro"
@@ -194,7 +262,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableTop="@drawable/register"
-            android:paddingTop="12dp"
+            android:paddingTop="10dp"
             android:paddingBottom="4dp"
             android:text="Registro"
             android:textAllCaps="false"
@@ -209,7 +277,7 @@
             android:layout_weight="1"
             android:drawableTop="@drawable/reports"
             android:onClick="NavReportes"
-            android:paddingTop="12dp"
+            android:paddingTop="10dp"
             android:paddingBottom="4dp"
             android:text="Reportes"
             android:textAllCaps="false"
@@ -224,12 +292,13 @@
             android:layout_weight="1"
             android:drawableTop="@drawable/config"
             android:onClick="NavConfig"
-            android:paddingTop="12dp"
+            android:paddingTop="10dp"
             android:paddingBottom="4dp"
             android:text="Config"
             android:textAllCaps="false"
             android:textColor="#757575"
             android:textSize="12sp" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
