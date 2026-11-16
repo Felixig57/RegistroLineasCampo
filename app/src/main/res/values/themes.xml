@@ -1,9 +1,24 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.RegistroLineasCampo" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
 
+    <style name="Base.Theme.RegistroLineasCampo" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Verde en toda la app (quita el morado) -->
+        <item name="colorPrimary">#4CAF50</item>
+        <item name="colorPrimaryVariant">#388E3C</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#4CAF50</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+        <!-- Texto de los campos siempre oscuro -->
+        <item name="android:textColorPrimary">#333333</item>
+        <item name="android:textColorSecondary">#757575</item>
+        <item name="android:textColorHint">#9E9E9E</item>
+
+        <!-- Barra de estado verde con hora, wifi y batería en blanco -->
+        <item name="android:statusBarColor">#4CAF50</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Evita que el teléfono oscurezca la app a la fuerza -->
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
     </style>
 
     <style name="Theme.RegistroLineasCampo" parent="Base.Theme.RegistroLineasCampo" />

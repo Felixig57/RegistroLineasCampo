@@ -6,9 +6,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
+
     android:background="#F5F5F5"
-    tools:context=".Configuracion">
+    tools:context=".ui.Settings.Configuracion">
 
     <LinearLayout
         android:id="@+id/linearLayoutHeader"
@@ -67,57 +67,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="2dp"
-                app:cardBackgroundColor="#FFFFFF"
-                android:layout_marginBottom="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Logo de la Empresa"
-                        android:textSize="16sp"
-                        android:textColor="#333333"
-                        android:layout_marginBottom="12dp"/>
-
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:src="@android:drawable/ic_menu_gallery"
-                        android:background="#EEEEEE"
-                        android:scaleType="center"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="12dp"/>
-
-                    <Button
-                        android:id="@+id/btnCargarLogo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Cargar Logo"
-                        android:backgroundTint="#2962FF"
-                        app:icon="@android:drawable/ic_menu_upload"
-                        android:textColor="#FFFFFF"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Formatos: JPG, PNG (200x200px)"
-                        android:gravity="center"
-                        android:textSize="12sp"
-                        android:textColor="#757575"
-                        android:layout_marginTop="4dp"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
+            <!-- CONFIGURACIÓN DEL TRABAJO -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -153,6 +103,7 @@
                         android:layout_height="48dp"
                         android:background="@drawable/rounded_background_white"
                         android:layout_marginBottom="12dp"/>
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -173,12 +124,26 @@
                         android:hint="Variedad"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         app:boxStrokeColor="#4CAF50"
-                        android:layout_marginBottom="16dp">
+                        android:layout_marginBottom="8dp">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtConfigVariedad"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="text"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Precio por línea ($)"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:boxStrokeColor="#4CAF50"
+                        android:layout_marginBottom="16dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtConfigPrecio"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <Button
@@ -192,6 +157,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- GESTIÓN DE DATOS -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -225,7 +191,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Los datos se guardan automáticamente en tu dispositivo."
-                            android:textColor="#FBC02D"
+                            android:textColor="#F9A825"
                             android:textSize="12sp"/>
                     </LinearLayout>
 
@@ -260,10 +226,10 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-
+    <!-- BARRA DE NAVEGACIÓN INFERIOR -->
     <LinearLayout
         android:id="@+id/bottomNavLayout"
-        android:layout_width="458dp"
+        android:layout_width="0dp"
         android:layout_height="76dp"
         android:background="@android:color/white"
         android:elevation="16dp"
